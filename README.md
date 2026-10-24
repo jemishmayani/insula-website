@@ -10,9 +10,9 @@ about.html              About
 neurosurgery.html       Neurosurgery
 spine.html              Spine
 conditions.html         Conditions directory
-conditions/*.html       One page per condition (10)
+conditions/*.html       One page per condition (21)
 resources.html          Patient resources
-resources/*.html        One page per guide (6)
+resources/*.html        One page per guide (14)
 contact.html            Contact
 privacy.html            Privacy policy
 disclaimer.html         Medical disclaimer
@@ -79,7 +79,7 @@ The "INSULA NEUROSCIENCES" wordmark beside the logo is live text in Bebas Neue, 
 ### Adding a new condition page
 1. In `conditions/`, copy an existing page, for example `brain-tumours.html`, and rename the copy.
 2. Edit the title, description, headings and text. Update the "On this page" list so each link matches a section `id`.
-3. Open `conditions.html`, copy one condition card (a block starting `<a class="card cond-card"`), paste it into the right group, and change its link, title and summary. Set `data-area` to `brain` or `spine`, and put a few search words in `data-search` in lowercase.
+3. Open `conditions.html`, copy one condition card (a block starting `<a class="card cond-card"`), paste it into the right group, and change its link, title and summary. Set `data-area` to `brain`, `spine`, `nerve` or `child`, and put a few search words in `data-search` in lowercase.
 4. Update "Last reviewed" at the bottom of the page.
 
 Patient guides work the same way, using `resources/` and `resources.html`.
@@ -95,9 +95,10 @@ All of these live in `assets/js/main.js`, with their styles in `assets/css/style
 
 - **Nerve-cell network** behind every page, top to bottom. Signals hop between cells, and the cursor or a tap fires new ones. Interactive panels, cards and the bottom navigation tiles sit above it on solid backgrounds.
 - **Nervous system explorer** on the home page. Choose brain, spinal cord or nerves, or send a signal down to the foot and back.
-- **Slipped-disc slider** on the home page, the Spine page and the slipped disc guide.
+- **"Where is the problem?" body map** on the home page. Tap the head, face, neck, arm, back, bladder or leg (or "Shaking or stiffness" and "In a baby or child") to see common symptoms, each linked to its guide. Urgent ones are marked.
+- **Slipped-disc slider** on the Spine page and the slipped disc guide.
 - **Insula reveal** on the home page. The opercula part as you scroll, or when the brain is tapped.
-- **Condition animations**, one in every condition guide:
+- **Condition animations**, one in every condition guide (21 in all):
   - Brain tumours: a growing tumour pushes the midline across
   - Brain aneurysm: a pulsing berry aneurysm, untreated, ruptured, coiled or clipped
   - Hydrocephalus: the fluid pathway in a mid-line view, blocked at the aqueduct, with a shunt or with an ETV
@@ -107,6 +108,17 @@ All of these live in `assets/js/main.js`, with their styles in `assets/css/style
   - Cervical myelopathy: discs compressing the cord, before and after surgery
   - Cauda equina syndrome: a disc squeezing the nerve roots and the saddle area going numb
   - Spinal tuberculosis: a linked spine where the front of two vertebrae collapses into a hump
+  - Stroke: a front-on slice with the carotid, anterior and middle cerebral arteries. A clot blocks the middle cerebral artery while a clock runs, the clot is removed, or a tiny deep artery bursts and pushes the brain across
+  - Pituitary tumour: a tumour lifting the optic nerves while the outer halves of vision fade, with faint shadows that can remain after surgery. A second animation shows a side view of the head, with the endoscope passing through the nose and sphenoid sinus to the tumour
+  - Neurocysticercosis: a cyst passing through its four stages, with seizure ripples spreading from it
+  - Chiari malformation: the tonsils sagging through the base of the skull, fluid flow blocking, a syrinx forming, and decompression
+  - Parkinson's disease: a deep brain stimulation electrode, with a spiral drawing test and tremor trace that settle when switched on
+  - Carpal tunnel syndrome: a cross-section of the wrist where the nerve flattens and the fingers tingle, and the ligament is released
+  - Cervical radiculopathy: choose a nerve root (C5 to C8) to see its strip of the arm light up and which movement weakens
+  - Spondylolisthesis: L4 slipping forward on L5 and squeezing the nerves, then fixed with screws and rods
+  - Osteoporotic spine fracture: porous bone collapsing into a wedge, then kyphoplasty: a balloon lifts the vertebra back towards its height and cement fills it
+  - Craniosynostosis: a baby's skull from above, changing shape as each suture fuses early
+  - Spina bifida: occulta, meningocele, myelomeningocele and the repair, in cross-section
 - **Emergency boxes** carry a small siren light that alternates red and blue.
 - **Navigation:** on desktop a pulse travels along the current page's underline. In the phone menu, the current page shows its own icon drawing in, and items slide in one after another.
 - Numbers that count up, headings that rise in word by word, staggered cards, a soft cursor light on cards, a scroll progress bar, and gentle fades between pages.
