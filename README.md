@@ -10,17 +10,25 @@ about.html              About
 neurosurgery.html       Neurosurgery
 spine.html              Spine
 conditions.html         Conditions directory
-conditions/*.html       One page per condition (21)
+conditions/*.html       One page per condition (23)
 resources.html          Patient resources
 resources/*.html        One page per guide (14)
+cards.html              Printable warning-sign cards
+cards/*.html, *.pdf     One page and one A5 PDF per card (5)
+glossary.html           A to Z of medical words (88 terms)
+history.html            History of neurosurgery timeline
+search.html             Full search results page
 contact.html            Contact
 privacy.html            Privacy policy
 disclaimer.html         Medical disclaimer
 404.html                "Page not found"
 assets/css/style.css    All styling, including the colour palette
-assets/js/main.js       Animations and interactions
+assets/js/main.js       Animations, interactions, search and card printing
+assets/js/search-index.js  The search index (all pages and glossary terms)
 assets/img/             Logo, favicon, portrait, social preview image
-robots.txt              For search engines
+
+robots.txt              For search engines, with the sitemap address
+sitemap.xml             List of every page, for search engines
 .nojekyll               Tells GitHub Pages to serve files as they are
 ```
 
@@ -45,9 +53,8 @@ Upload the new files to the same repository. GitHub asks whether to replace exis
 2. In **Settings > Pages > Custom domain**, enter it (for example `www.insulaneurosciences.com`) and save.
 3. At your registrar, add the DNS record GitHub shows you. For a `www` address, that's a `CNAME` record pointing to `jemishmayani.github.io`. GitHub's guide: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
 4. Once verified, tick **Enforce HTTPS**.
-5. Optional, for nicer link previews on WhatsApp and LinkedIn: in every page's `<head>`, add
-   `<meta property="og:image" content="https://www.yourdomain.com/assets/img/og-image.png">`
-   The image is already in `assets/img/`. It needs the full address, which is why it waits for your domain.
+5. Update the site address used for search engines and link previews. Every page's `<head>` has a canonical link, an `og:url` and an `og:image` written with the full address `https://jemishmayani.github.io/insula-website/`, and `sitemap.xml` and `robots.txt` use it too. In VS Code, use **Edit > Replace in Files** to replace `https://jemishmayani.github.io/insula-website/` with your new address (for example `https://www.insulaneurosciences.com/`, with the slash at the end) and click **Replace All**.
+   If your repository has a different name from `insula-website`, do the same replacement now with your real address.
 
 ---
 
@@ -76,6 +83,12 @@ Replace these files in `assets/img/`, keeping the **same names**:
 
 The "INSULA NEUROSCIENCES" wordmark beside the logo is live text in Bebas Neue, so it stays sharp at every size.
 
+### Search, sitemap and related pages
+The search index, the sitemap and the "Related pages" blocks list pages by name. When you add or remove a page by hand, also add it to `sitemap.xml` (copy one `<url>` line) and to `assets/js/search-index.js` (copy one `{...}` entry and change the title `t`, address `u`, kind `k` and summary `s`).
+
+### Medical wording
+Symptoms on this site are always linked to the range of conditions that can cause them, never to one diagnosis. For example, a sudden severe headache lists bleeding around the brain and stroke "among other causes", and a first seizure lists several causes and says it needs a same-day assessment. Keep to this when you add text.
+
 ### Adding a new condition page
 1. In `conditions/`, copy an existing page, for example `brain-tumours.html`, and rename the copy.
 2. Edit the title, description, headings and text. Update the "On this page" list so each link matches a section `id`.
@@ -96,9 +109,12 @@ All of these live in `assets/js/main.js`, with their styles in `assets/css/style
 - **Nerve-cell network** behind every page, top to bottom. Signals hop between cells, and the cursor or a tap fires new ones. Interactive panels, cards and the bottom navigation tiles sit above it on solid backgrounds.
 - **Nervous system explorer** on the home page. Choose brain, spinal cord or nerves, or send a signal down to the foot and back.
 - **"Where is the problem?" body map** on the home page. Tap the head, face, neck, arm, back, bladder or leg (or "Shaking or stiffness" and "In a baby or child") to see common symptoms, each linked to its guide. Urgent ones are marked.
+- **Site search.** The magnifying glass in the header (or the `/` key) opens instant search across conditions, guides, cards, glossary terms and history. It works offline from `assets/js/search-index.js`; common words such as *sciatica*, *fits* and *TB* are matched to the right pages.
+- **Warning-sign cards.** Each card page has a Print button (A5, white background, saves ink) and a ready-made PDF download.
+- **Related pages** at the bottom of every condition and guide, mixing conditions, guides and cards.
 - **Slipped-disc slider** on the Spine page and the slipped disc guide.
 - **Insula reveal** on the home page. The opercula part as you scroll, or when the brain is tapped.
-- **Condition animations**, one in every condition guide (21 in all):
+- **Condition animations**, one in every condition guide (23 in all, including the headache and brachial plexus guides):
   - Brain tumours: a growing tumour pushes the midline across
   - Brain aneurysm: a pulsing berry aneurysm, untreated, ruptured, coiled or clipped
   - Hydrocephalus: the fluid pathway in a mid-line view, blocked at the aqueduct, with a shunt or with an ETV

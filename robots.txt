@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://jemishmayani.github.io/insula-website/sitemap.xml

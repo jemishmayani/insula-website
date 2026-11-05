@@ -12,6 +12,10 @@
 <meta property="og:title" content="Conditions | Dr Jemish Mayani - Insula Neurosciences">
 <meta property="og:description" content="A directory of plain-language guides to common brain and spine conditions.">
 <meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://jemishmayani.github.io/insula-website/conditions.html">
+<meta property="og:url" content="https://jemishmayani.github.io/insula-website/conditions.html">
+<meta property="og:image" content="https://jemishmayani.github.io/insula-website/assets/img/og-image.png">
+<meta property="og:locale" content="en_IN">
 <meta name="author" content="Dr Jemish Mayani">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
@@ -21,15 +25,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page-inner">
+<body class="page-inner" data-root="">
 <canvas class="neural neural-page" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Insula Neurosciences, home">
       <img src="assets/img/logo-mark-96.png" width="40" height="40" alt="">
-      <span class="brand-text"><span class="brand-name">Insula</span><span class="brand-sub">Neurosciences</span></span>
+      <span class="brand-text"><span class="brand-name">Insula</span> <span class="brand-sub">Neurosciences</span></span>
     </a>
+    <button class="search-toggle" type="button" aria-label="Search the site" data-search-open><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m12.7 12.7 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span>
     </button>
@@ -39,138 +44,162 @@
   </div>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 </header>
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search the site">
+    <form role="search" action="search.html" data-search-form>
+      <svg class="search-ico" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m12.7 12.7 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <label class="sr-only" for="so-q">Search</label>
+      <input id="so-q" name="q" type="search" placeholder="Search conditions, guides, glossary" autocomplete="off">
+      <button class="search-close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </form>
+    <ol class="search-results" data-overlay-results></ol>
+    <p class="search-hint small">Try <a href="search.html?q=sciatica">sciatica</a>, <a href="search.html?q=shunt">shunt</a> or <a href="search.html?q=MRI">MRI</a>.</p>
+  </div>
+</div>
 <main id="main">
 <section class="page-hero">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Conditions</span></nav>
     
     <h1 data-split>Conditions</h1>
-    <p class="lead">Plain-language guides to common brain and spine conditions: what they are, how they are diagnosed, and the treatment options.</p>
+    <p class="lead">Plain-language guides to common brain, spine and nerve conditions: what they are, how they are diagnosed, and the treatment options.</p>
   </div>
 </section>
 <div class="thread" aria-hidden="true"><span style="left:8%"></span></div>
-<section class="section">
+<section class="section section-tight cat-section"><div class="wrap">
+  <h2 class="sr-only">Browse by area</h2>
+  <div class="cat-grid"><a class="cat-tile" href="#group-brain" data-cat="brain"><span class="cat-txt"><span class="cat-name">Brain</span><span class="cat-count">11 guides</span><span class="cat-desc">Tumours, bleeds, fluid problems, strokes and injuries of the brain and skull.</span></span></a><a class="cat-tile" href="#group-spine" data-cat="spine"><span class="cat-txt"><span class="cat-name">Spine</span><span class="cat-count">8 guides</span><span class="cat-desc">Problems of the discs, bones, joints and spinal cord in the neck and back.</span></span></a><a class="cat-tile" href="#group-nerve" data-cat="nerve"><span class="cat-txt"><span class="cat-name">Nerves</span><span class="cat-count">2 guides</span><span class="cat-desc">Nerves squeezed or irritated on their way to the arms, hands and legs.</span></span></a><a class="cat-tile" href="#group-child" data-cat="child"><span class="cat-txt"><span class="cat-name">Children</span><span class="cat-count">2 guides</span><span class="cat-desc">Conditions present from birth or found in babies and young children.</span></span></a></div>
+</div></section>
+<section class="section section-tight featured" data-featured><div class="wrap">
+  <div class="section-head"><h2>Common conditions</h2><p class="section-sub">The guides people read most often.</p></div>
+  <div class="feat-grid stagger"><a class="card feat-card" href="conditions/slipped-disc.html"><span class="feat-txt"><span class="tag tag-spine">Spine</span><h3>Slipped disc and sciatica</h3><p>A disc pressing on a nerve, often causing leg pain, tingling or numbness.</p></span></a><a class="card feat-card" href="conditions/lumbar-canal-stenosis.html"><span class="feat-txt"><span class="tag tag-spine">Spine</span><h3>Lumbar canal stenosis</h3><p>Narrowing of the spinal canal in the lower back, causing leg pain when walking.</p></span></a><a class="card feat-card" href="conditions/head-injury.html"><span class="feat-txt"><span class="tag tag-brain">Brain</span><h3>Head injury</h3><p>From a mild concussion to bleeding inside the skull. Knowing the warning signs matters.</p></span></a><a class="card feat-card" href="conditions/stroke.html"><span class="feat-txt"><span class="tag tag-brain">Brain</span><h3>Stroke</h3><p>A blocked or burst blood vessel in the brain. Every minute counts.</p></span></a><a class="card feat-card" href="conditions/brain-tumours.html"><span class="feat-txt"><span class="tag tag-brain">Brain</span><h3>Brain tumours</h3><p>An abnormal growth of cells in or around the brain. Many are not cancer.</p></span></a><a class="card feat-card" href="conditions/cervical-myelopathy.html"><span class="feat-txt"><span class="tag tag-spine">Spine</span><h3>Cervical myelopathy</h3><p>Pressure on the spinal cord in the neck, causing clumsy hands and unsteady walking.</p></span></a></div>
+</div></section>
+<section class="section section-alt" id="all-conditions">
   <div class="wrap">
+    <div class="section-head"><h2>All conditions</h2></div>
     <div class="filter-bar" data-filter>
       <label class="sr-only" for="cond-search">Search conditions</label>
       <input id="cond-search" type="search" placeholder="Search, for example back pain" autocomplete="off">
       <div class="chips" role="group" aria-label="Filter by area">
-        <button type="button" class="chip" data-chip="all" aria-pressed="true">All</button>
-        <button type="button" class="chip" data-chip="brain" aria-pressed="false">Brain</button>
-        <button type="button" class="chip" data-chip="spine" aria-pressed="false">Spine</button>
-        <button type="button" class="chip" data-chip="nerve" aria-pressed="false">Nerves</button>
-        <button type="button" class="chip" data-chip="child" aria-pressed="false">Children</button>
+        <button type="button" class="chip" data-chip="all" aria-pressed="true">All</button><button type="button" class="chip" data-chip="brain" aria-pressed="false">Brain</button><button type="button" class="chip" data-chip="spine" aria-pressed="false">Spine</button><button type="button" class="chip" data-chip="nerve" aria-pressed="false">Nerves</button><button type="button" class="chip" data-chip="child" aria-pressed="false">Children</button>
       </div>
     </div>
-    <div class="cond-group" data-group="brain">
-      <h2 class="group-title">Brain</h2>
-      <div class="card-grid stagger"><a class="card cond-card " href="conditions/brain-tumours.html" data-area="brain" data-search="brain tumours an abnormal growth of cells in or around the brain. many are not cancer.">
-  <span class="tag tag-brain">Brain</span>
-  <h3>Brain tumours</h3>
-  <p>An abnormal growth of cells in or around the brain. Many are not cancer.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/brain-aneurysm.html" data-area="brain" data-search="brain aneurysm a small bulge in a weak spot of a blood vessel in the brain. most never burst.">
+    <div class="cond-group" data-group="brain" id="group-brain">
+      <div class="group-head"><div><h2 class="group-title">Brain</h2><p class="group-desc">Tumours, bleeds, fluid problems, strokes and injuries of the brain and skull.</p></div></div>
+      <div class="card-grid stagger"><a class="card cond-card " href="conditions/brain-aneurysm.html" data-area="brain" data-search="brain aneurysm a small bulge in a weak spot of a blood vessel in the brain. most never burst.">
   <span class="tag tag-brain">Brain</span>
   <h3>Brain aneurysm</h3>
   <p>A small bulge in a weak spot of a blood vessel in the brain. Most never burst.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/hydrocephalus.html" data-area="brain" data-search="hydrocephalus a build-up of fluid inside the brain that raises pressure. it can affect any age.">
+</a><a class="card cond-card " href="conditions/brain-tumours.html" data-area="brain" data-search="brain tumours an abnormal growth of cells in or around the brain. many are not cancer.">
   <span class="tag tag-brain">Brain</span>
-  <h3>Hydrocephalus</h3>
-  <p>A build-up of fluid inside the brain that raises pressure. It can affect any age.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/head-injury.html" data-area="brain" data-search="head injury from a mild concussion to bleeding inside the skull. knowing the warning signs matters.">
-  <span class="tag tag-brain">Brain</span>
-  <h3>Head injury</h3>
-  <p>From a mild concussion to bleeding inside the skull. Knowing the warning signs matters.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/trigeminal-neuralgia.html" data-area="brain" data-search="trigeminal neuralgia sudden, severe, electric-shock-like pain in one side of the face.">
-  <span class="tag tag-brain">Brain</span>
-  <h3>Trigeminal neuralgia</h3>
-  <p>Sudden, severe, electric-shock-like pain in one side of the face.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/stroke.html" data-area="brain" data-search="stroke a blocked or burst blood vessel in the brain. every minute counts.">
-  <span class="tag tag-brain">Brain</span>
-  <h3>Stroke</h3>
-  <p>A blocked or burst blood vessel in the brain. Every minute counts.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/pituitary-tumour.html" data-area="brain" data-search="pituitary tumour a usually benign growth of the hormone gland below the brain. it can affect vision and hormones.">
-  <span class="tag tag-brain">Brain</span>
-  <h3>Pituitary tumour</h3>
-  <p>A usually benign growth of the hormone gland below the brain. It can affect vision and hormones.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/neurocysticercosis.html" data-area="brain" data-search="neurocysticercosis cysts of the pork tapeworm in the brain. a common cause of seizures in india, and treatable.">
-  <span class="tag tag-brain">Brain</span>
-  <h3>Neurocysticercosis</h3>
-  <p>Cysts of the pork tapeworm in the brain. A common cause of seizures in India, and treatable.</p>
+  <h3>Brain tumours</h3>
+  <p>An abnormal growth of cells in or around the brain. Many are not cancer.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a><a class="card cond-card " href="conditions/chiari-malformation.html" data-area="brain" data-search="chiari malformation the lowest part of the brain sits too low, blocking fluid flow at the base of the skull.">
   <span class="tag tag-brain">Brain</span>
   <h3>Chiari malformation</h3>
   <p>The lowest part of the brain sits too low, blocking fluid flow at the base of the skull.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/head-injury.html" data-area="brain" data-search="head injury from a mild concussion to bleeding inside the skull. knowing the warning signs matters.">
+  <span class="tag tag-brain">Brain</span>
+  <h3>Head injury</h3>
+  <p>From a mild concussion to bleeding inside the skull. Knowing the warning signs matters.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/headache.html" data-area="brain" data-search="headache primary, secondary and referred headaches: what each feels like, the warning signs, and when to see a specialist.">
+  <span class="tag tag-brain">Brain</span>
+  <h3>Headache</h3>
+  <p>Primary, secondary and referred headaches: what each feels like, the warning signs, and when to see a specialist.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/hydrocephalus.html" data-area="brain" data-search="hydrocephalus a build-up of fluid inside the brain that raises pressure. it can affect any age.">
+  <span class="tag tag-brain">Brain</span>
+  <h3>Hydrocephalus</h3>
+  <p>A build-up of fluid inside the brain that raises pressure. It can affect any age.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/neurocysticercosis.html" data-area="brain" data-search="neurocysticercosis cysts of the pork tapeworm in the brain. they can cause seizures, and are usually treatable.">
+  <span class="tag tag-brain">Brain</span>
+  <h3>Neurocysticercosis</h3>
+  <p>Cysts of the pork tapeworm in the brain. They can cause seizures, and are usually treatable.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a><a class="card cond-card " href="conditions/parkinsons-dbs.html" data-area="brain" data-search="parkinson&#x27;s disease and dbs tremor, stiffness and slowness, and how deep brain stimulation can help.">
   <span class="tag tag-brain">Brain</span>
   <h3>Parkinson's disease and DBS</h3>
   <p>Tremor, stiffness and slowness, and how deep brain stimulation can help.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a></div>
-    </div>
-    <div class="cond-group" data-group="spine">
-      <h2 class="group-title">Spine</h2>
-      <div class="card-grid stagger"><a class="card cond-card " href="conditions/slipped-disc.html" data-area="spine" data-search="slipped disc and sciatica a disc pressing on a nerve, often causing leg pain, tingling or numbness.">
-  <span class="tag tag-spine">Spine</span>
-  <h3>Slipped disc and sciatica</h3>
-  <p>A disc pressing on a nerve, often causing leg pain, tingling or numbness.</p>
+</a><a class="card cond-card " href="conditions/pituitary-tumour.html" data-area="brain" data-search="pituitary tumour a usually benign growth of the hormone gland below the brain. it can affect vision and hormones.">
+  <span class="tag tag-brain">Brain</span>
+  <h3>Pituitary tumour</h3>
+  <p>A usually benign growth of the hormone gland below the brain. It can affect vision and hormones.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/lumbar-canal-stenosis.html" data-area="spine" data-search="lumbar canal stenosis narrowing of the spinal canal in the lower back, causing leg pain when walking.">
+</a><a class="card cond-card " href="conditions/stroke.html" data-area="brain" data-search="stroke a blocked or burst blood vessel in the brain. every minute counts.">
+  <span class="tag tag-brain">Brain</span>
+  <h3>Stroke</h3>
+  <p>A blocked or burst blood vessel in the brain. Every minute counts.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/trigeminal-neuralgia.html" data-area="brain" data-search="trigeminal neuralgia sudden, severe, electric-shock-like pain in one side of the face.">
+  <span class="tag tag-brain">Brain</span>
+  <h3>Trigeminal neuralgia</h3>
+  <p>Sudden, severe, electric-shock-like pain in one side of the face.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a></div>
+    </div><div class="cond-group" data-group="spine" id="group-spine">
+      <div class="group-head"><div><h2 class="group-title">Spine</h2><p class="group-desc">Problems of the discs, bones, joints and spinal cord in the neck and back.</p></div></div>
+      <div class="card-grid stagger"><a class="card cond-card " href="conditions/cauda-equina-syndrome.html" data-area="spine" data-search="cauda equina syndrome a spinal emergency where nerves controlling the bladder and bowel are squeezed.">
   <span class="tag tag-spine">Spine</span>
-  <h3>Lumbar canal stenosis</h3>
-  <p>Narrowing of the spinal canal in the lower back, causing leg pain when walking.</p>
+  <h3>Cauda equina syndrome</h3>
+  <p>A spinal emergency where nerves controlling the bladder and bowel are squeezed.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a><a class="card cond-card " href="conditions/cervical-myelopathy.html" data-area="spine" data-search="cervical myelopathy pressure on the spinal cord in the neck, causing clumsy hands and unsteady walking.">
   <span class="tag tag-spine">Spine</span>
   <h3>Cervical myelopathy</h3>
   <p>Pressure on the spinal cord in the neck, causing clumsy hands and unsteady walking.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/cauda-equina-syndrome.html" data-area="spine" data-search="cauda equina syndrome a spinal emergency where nerves controlling the bladder and bowel are squeezed.">
-  <span class="tag tag-spine">Spine</span>
-  <h3>Cauda equina syndrome</h3>
-  <p>A spinal emergency where nerves controlling the bladder and bowel are squeezed.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/spinal-tuberculosis.html" data-area="spine" data-search="spinal tuberculosis a tb infection of the spine. common in india, and treatable with medicines.">
-  <span class="tag tag-spine">Spine</span>
-  <h3>Spinal tuberculosis</h3>
-  <p>A TB infection of the spine. Common in India, and treatable with medicines.</p>
-  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a><a class="card cond-card " href="conditions/cervical-radiculopathy.html" data-area="spine" data-search="cervical radiculopathy a pinched nerve in the neck, causing pain, numbness or weakness down one arm.">
   <span class="tag tag-spine">Spine</span>
   <h3>Cervical radiculopathy</h3>
   <p>A pinched nerve in the neck, causing pain, numbness or weakness down one arm.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-</a><a class="card cond-card " href="conditions/spondylolisthesis.html" data-area="spine" data-search="spondylolisthesis one vertebra slipping forward on the one below, which can squeeze the nerves.">
+</a><a class="card cond-card " href="conditions/lumbar-canal-stenosis.html" data-area="spine" data-search="lumbar canal stenosis narrowing of the spinal canal in the lower back, causing leg pain when walking.">
   <span class="tag tag-spine">Spine</span>
-  <h3>Spondylolisthesis</h3>
-  <p>One vertebra slipping forward on the one below, which can squeeze the nerves.</p>
+  <h3>Lumbar canal stenosis</h3>
+  <p>Narrowing of the spinal canal in the lower back, causing leg pain when walking.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a><a class="card cond-card " href="conditions/osteoporotic-spine-fracture.html" data-area="spine" data-search="osteoporotic spine fracture a vertebra weakened by thin bones collapses, often after a minor fall or even a cough.">
   <span class="tag tag-spine">Spine</span>
   <h3>Osteoporotic spine fracture</h3>
   <p>A vertebra weakened by thin bones collapses, often after a minor fall or even a cough.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/slipped-disc.html" data-area="spine" data-search="slipped disc and sciatica a disc pressing on a nerve, often causing leg pain, tingling or numbness.">
+  <span class="tag tag-spine">Spine</span>
+  <h3>Slipped disc and sciatica</h3>
+  <p>A disc pressing on a nerve, often causing leg pain, tingling or numbness.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/spinal-tuberculosis.html" data-area="spine" data-search="spinal tuberculosis a tb infection of the spine. common in india, and treatable with medicines.">
+  <span class="tag tag-spine">Spine</span>
+  <h3>Spinal tuberculosis</h3>
+  <p>A TB infection of the spine. Common in India, and treatable with medicines.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/spondylolisthesis.html" data-area="spine" data-search="spondylolisthesis one vertebra slipping forward on the one below, which can squeeze the nerves.">
+  <span class="tag tag-spine">Spine</span>
+  <h3>Spondylolisthesis</h3>
+  <p>One vertebra slipping forward on the one below, which can squeeze the nerves.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a></div>
-    </div>
-    <div class="cond-group" data-group="nerve">
-      <h2 class="group-title">Nerves</h2>
-      <div class="card-grid stagger"><a class="card cond-card " href="conditions/carpal-tunnel-syndrome.html" data-area="nerve" data-search="carpal tunnel syndrome a squeezed nerve at the wrist causing tingling and numbness in the fingers, often at night.">
+    </div><div class="cond-group" data-group="nerve" id="group-nerve">
+      <div class="group-head"><div><h2 class="group-title">Nerves</h2><p class="group-desc">Nerves squeezed or irritated on their way to the arms, hands and legs.</p></div></div>
+      <div class="card-grid stagger"><a class="card cond-card " href="conditions/brachial-plexus-injury.html" data-area="nerve" data-search="brachial plexus injury injury to the network of nerves between the neck and the arm, often after a motorcycle crash or during birth.">
+  <span class="tag tag-nerve">Nerves</span>
+  <h3>Brachial plexus injury</h3>
+  <p>Injury to the network of nerves between the neck and the arm, often after a motorcycle crash or during birth.</p>
+  <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card cond-card " href="conditions/carpal-tunnel-syndrome.html" data-area="nerve" data-search="carpal tunnel syndrome a squeezed nerve at the wrist causing tingling and numbness in the fingers, often at night.">
   <span class="tag tag-nerve">Nerves</span>
   <h3>Carpal tunnel syndrome</h3>
   <p>A squeezed nerve at the wrist causing tingling and numbness in the fingers, often at night.</p>
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a></div>
-    </div>
-    <div class="cond-group" data-group="child">
-      <h2 class="group-title">Children</h2>
+    </div><div class="cond-group" data-group="child" id="group-child">
+      <div class="group-head"><div><h2 class="group-title">Children</h2><p class="group-desc">Conditions present from birth or found in babies and young children.</p></div></div>
       <div class="card-grid stagger"><a class="card cond-card " href="conditions/craniosynostosis.html" data-area="child" data-search="craniosynostosis when the joints of a baby&#x27;s skull fuse too early, giving the head an unusual shape.">
   <span class="tag tag-child">Children</span>
   <h3>Craniosynostosis</h3>
@@ -183,9 +212,11 @@
   <span class="card-link">Read more <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a></div>
     </div>
-    <p class="no-results" hidden>No conditions match your search. Try a different word, or <a href="contact.html">get in touch</a>.</p>
+    <p class="no-results" hidden>No conditions match your search. Try a different word, use the <a href="search.html">site search</a>, or <a href="contact.html">get in touch</a>.</p>
+    <p class="small dir-note">A symptom can have many causes. These guides explain conditions, not your own diagnosis. If you are worried about a symptom, see a doctor, and for warning signs, read <a href="resources/emergency-warning-signs.html">when to get emergency help</a>.</p>
   </div>
 </section>
+<section class="section section-alt"><div class="wrap"><div class="section-head"><h2>More ways to learn</h2></div><div class="card-grid card-grid-4 stagger"><a class="card explore-card" href="glossary.html"><h3>Glossary</h3><p>Plain meanings for words in reports and letters.</p><span class="card-link">Open <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="card explore-card" href="cards.html"><h3>Warning-sign cards</h3><p>Print or save the signs that need urgent help.</p><span class="card-link">Open <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="card explore-card" href="history.html"><h3>History of neurosurgery</h3><p>From trephined skulls to navigation in theatre.</p><span class="card-link">Open <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div></div></section>
 <section class="cta-band reveal">
   <div class="wrap cta-inner">
     <div>
@@ -205,19 +236,21 @@
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="Insula Neurosciences, home">
           <img src="assets/img/logo-mark-96.png" width="40" height="40" alt="" loading="lazy">
-          <span class="brand-text"><span class="brand-name">Insula</span><span class="brand-sub">Neurosciences</span></span>
+          <span class="brand-text"><span class="brand-name">Insula</span> <span class="brand-sub">Neurosciences</span></span>
         </a>
         <p>Clear, honest information about the brain, spine and nerves.</p>
         <a class="footer-mail" href="mailto:insulaneurosciences@gmail.com"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m2.5 4.5 5.5 4 5.5-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>insulaneurosciences@gmail.com</a>
         <a class="footer-mail" href="https://www.instagram.com/insula.neurosciences/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="11.6" cy="4.4" r=".9" fill="currentColor"/></svg>@insula.neurosciences</a>
       </div>
       <nav class="footer-nav" aria-label="Footer">
-        <div><h2>Explore</h2><ul>
+        <div><h2>Site</h2><ul>
           <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
-          <li><a href="neurosurgery.html">Neurosurgery</a></li><li><a href="spine.html">Spine</a></li></ul></div>
+          <li><a href="neurosurgery.html">Neurosurgery</a></li><li><a href="spine.html">Spine</a></li>
+          <li><a href="contact.html">Contact</a></li><li><a href="search.html">Search</a></li></ul></div>
         <div><h2>Learn</h2><ul>
           <li><a href="conditions.html">Conditions</a></li><li><a href="resources.html">Patient resources</a></li>
-          <li><a href="contact.html">Contact</a></li></ul></div>
+          <li><a href="cards.html">Warning-sign cards</a></li><li><a href="glossary.html">Glossary</a></li>
+          <li><a href="history.html">History of neurosurgery</a></li></ul></div>
         <div><h2>Legal</h2><ul>
           <li><a href="privacy.html">Privacy policy</a></li><li><a href="disclaimer.html">Medical disclaimer</a></li></ul></div>
       </nav>

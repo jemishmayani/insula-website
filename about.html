@@ -5,13 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>About | Dr Jemish Mayani - Insula Neurosciences</title>
-<meta name="description" content="About Dr Jemish Mayani, neurosurgery resident (DrNB), and why Insula Neurosciences exists.">
+<meta name="description" content="About Dr Jemish Mayani, neurosurgery resident (DrNB), how this site is written, and why Insula Neurosciences exists.">
 <meta name="theme-color" content="#0D1114">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Insula Neurosciences">
 <meta property="og:title" content="About | Dr Jemish Mayani - Insula Neurosciences">
-<meta property="og:description" content="About Dr Jemish Mayani, neurosurgery resident (DrNB), and why Insula Neurosciences exists.">
+<meta property="og:description" content="About Dr Jemish Mayani, neurosurgery resident (DrNB), how this site is written, and why Insula Neurosciences exists.">
 <meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://jemishmayani.github.io/insula-website/about.html">
+<meta property="og:url" content="https://jemishmayani.github.io/insula-website/about.html">
+<meta property="og:image" content="https://jemishmayani.github.io/insula-website/assets/img/og-image.png">
+<meta property="og:locale" content="en_IN">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Dr Jemish Mayani", "jobTitle": "Neurosurgery resident (DrNB)", "url": "https://jemishmayani.github.io/insula-website/about.html", "sameAs": ["https://www.instagram.com/insula.neurosciences/"]}</script>
 <meta name="author" content="Dr Jemish Mayani">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
@@ -21,15 +26,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page-inner">
+<body class="page-inner" data-root="">
 <canvas class="neural neural-page" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Insula Neurosciences, home">
       <img src="assets/img/logo-mark-96.png" width="40" height="40" alt="">
-      <span class="brand-text"><span class="brand-name">Insula</span><span class="brand-sub">Neurosciences</span></span>
+      <span class="brand-text"><span class="brand-name">Insula</span> <span class="brand-sub">Neurosciences</span></span>
     </a>
+    <button class="search-toggle" type="button" aria-label="Search the site" data-search-open><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m12.7 12.7 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span>
     </button>
@@ -39,13 +45,25 @@
   </div>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 </header>
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search the site">
+    <form role="search" action="search.html" data-search-form>
+      <svg class="search-ico" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m12.7 12.7 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <label class="sr-only" for="so-q">Search</label>
+      <input id="so-q" name="q" type="search" placeholder="Search conditions, guides, glossary" autocomplete="off">
+      <button class="search-close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </form>
+    <ol class="search-results" data-overlay-results></ol>
+    <p class="search-hint small">Try <a href="search.html?q=sciatica">sciatica</a>, <a href="search.html?q=shunt">shunt</a> or <a href="search.html?q=MRI">MRI</a>.</p>
+  </div>
+</div>
 <main id="main">
 <section class="page-hero">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">About</span></nav>
     
     <h1 data-split>About</h1>
-    <p class="lead">The person behind Insula Neurosciences, and why this site exists.</p>
+    <p class="lead">The person behind Insula Neurosciences, how the information here is written, and what this site is and isn't.</p>
   </div>
 </section>
 <div class="thread" aria-hidden="true"><span style="left:8%"></span></div>
@@ -54,31 +72,45 @@
     <figure class="portrait reveal">
       <img src="assets/img/portrait.jpg" alt="Dr Jemish Mayani in the operating theatre" width="960" height="1200">
     </figure>
-    <div class="prose reveal">
-      <h2>Dr Jemish Mayani</h2>
+    <div class="about-main reveal">
+      <p class="about-kicker">Profile</p>
+      <h2 class="about-name">Dr Jemish Mayani</h2>
       <p class="role">Neurosurgery resident, DrNB, PGY-4</p>
-      <p>I'm a neurosurgery resident in the fourth year of my DrNB training.</p>
-      <p>Neurosurgery deals with some of the most frightening words a person can hear: tumour, bleed, spinal cord. People often leave an appointment with a diagnosis but without a clear picture of what it means. Their questions only come later, at home, when there's no one to ask.</p>
-      <p>Insula Neurosciences is my attempt to help with that. Here I explain brain and spine conditions in plain language, describe the treatment options honestly, and avoid both false reassurance and unnecessary alarm.</p>
-      <p>The information on this site is educational. It can help you prepare for a conversation with your own doctor, but it can't replace one.</p>
-
-      <h3 id="qualifications">Qualifications</h3>
-      <ul class="detail-list">
-        <li><span>MBBS</span>Government Medical College, Bhavnagar, 2016 to 2022</li>
-        <li><span>DrNB Neurosurgery</span>2023 to present, currently in the fourth year (PGY-4)</li>
-      </ul>
-
-      <h3 id="approach">What you can expect from this site</h3>
-      <ul>
-        <li><strong>Plain language.</strong> Medical words are explained in everyday terms.</li>
-        <li><strong>Every option.</strong> Including not operating, when that is the safer or better choice.</li>
-        <li><strong>Honesty about risks.</strong> No guarantees, and no exaggerated claims.</li>
-        <li><strong>Reliable information.</strong> Content based on accepted medical evidence and reviewed over time.</li>
-      </ul>
-
-      <h3 id="name">Why "Insula"?</h3>
-      <p>The insula is a part of the brain tucked deep inside, hidden under folds of tissue. Its name is Latin for <em>island</em>. It helps you sense what is happening inside your own body, such as your heartbeat, hunger and breathing. Hidden, deep, and quietly important felt like the right name for a page about the brain.</p>
+      <div class="profile-card">
+        <p class="pc-head">Training</p>
+        <ol class="pc-path">
+          <li class="on"><span class="pc-yr">2023 – now</span><span class="pc-what">DrNB Neurosurgery<span>Fourth year (PGY-4) of specialist training in brain, spine and nerve surgery</span></span></li>
+          <li><span class="pc-yr">2016 – 2022</span><span class="pc-what">MBBS<span>Government Medical College, Bhavnagar</span></span></li>
+        </ol>
+        <div class="pc-focus"><span class="pc-focus-k">This site covers</span><span class="pc-chip">Brain</span><span class="pc-chip">Spine</span><span class="pc-chip">Nerves</span><span class="pc-chip">Patient education</span></div>
+      </div>
+      <div class="prose">
+        <p>Neurosurgery deals with some of the most frightening words a person can hear: tumour, bleed, spinal cord. People often leave an appointment with a diagnosis but without a clear picture of what it means. Their questions only come later, at home, when there's no one to ask.</p>
+        <p>Insula Neurosciences is my attempt to help with that. I explain brain and spine conditions in plain language, describe the treatment options honestly, and avoid both false reassurance and unnecessary alarm.</p>
+      </div>
+      <div class="about-actions"><a class="btn" href="conditions.html">Browse the guides <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn-ghost" href="contact.html">Contact</a></div>
     </div>
+  </div>
+</section>
+<section class="section section-alt" id="standards">
+  <div class="wrap">
+    <div class="section-head"><h2>How this site is written</h2><p class="section-sub">The standards every page follows.</p></div>
+    <div class="std-grid stagger">
+      <div class="card plain std"><h3>Plain language</h3><p>Medical words are explained in everyday terms the first time they appear, with a glossary for the rest.</p></div>
+      <div class="card plain std"><h3>Based on guidance</h3><p>Content follows accepted medical evidence and published guidance, such as NICE and NHS patient information. Sources are named where specific advice is given.</p></div>
+      <div class="card plain std"><h3>Every option</h3><p>Pages describe all the reasonable choices, including not operating when that is safer, and are honest about risks.</p></div>
+      <div class="card plain std"><h3>One symptom, many causes</h3><p>Symptoms are linked to the range of conditions that can cause them, never to a single diagnosis.</p></div>
+      <div class="card plain std"><h3>Reviewed over time</h3><p>Each page shows when it was last reviewed. Pages are updated when guidance changes.</p></div>
+      <div class="card plain std"><h3>Independent</h3><p>No advertising, sponsorship or tracking. No product or hospital pays to appear here.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap narrow prose">
+    <h2>What this site is, and isn't</h2>
+    <p>This is an educational website. It can help you understand a condition and prepare for a conversation with your own doctor, but it can't replace one. I am a doctor in specialist training, and this site does not offer consultations, appointments or personal medical advice. In line with the National Medical Commission's guidance, it does not advertise services.</p>
+    <h2 id="name">Why "Insula"?</h2>
+    <p>The insula is a part of the brain tucked deep inside, hidden under folds of tissue. Its name is Latin for <em>island</em>. It helps you sense what is happening inside your own body, such as your heartbeat, hunger and breathing. Hidden, deep, and quietly important felt like the right name for a page about the brain.</p>
   </div>
 </section>
 <section class="cta-band reveal">
@@ -100,19 +132,21 @@
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="Insula Neurosciences, home">
           <img src="assets/img/logo-mark-96.png" width="40" height="40" alt="" loading="lazy">
-          <span class="brand-text"><span class="brand-name">Insula</span><span class="brand-sub">Neurosciences</span></span>
+          <span class="brand-text"><span class="brand-name">Insula</span> <span class="brand-sub">Neurosciences</span></span>
         </a>
         <p>Clear, honest information about the brain, spine and nerves.</p>
         <a class="footer-mail" href="mailto:insulaneurosciences@gmail.com"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m2.5 4.5 5.5 4 5.5-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>insulaneurosciences@gmail.com</a>
         <a class="footer-mail" href="https://www.instagram.com/insula.neurosciences/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="11.6" cy="4.4" r=".9" fill="currentColor"/></svg>@insula.neurosciences</a>
       </div>
       <nav class="footer-nav" aria-label="Footer">
-        <div><h2>Explore</h2><ul>
+        <div><h2>Site</h2><ul>
           <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
-          <li><a href="neurosurgery.html">Neurosurgery</a></li><li><a href="spine.html">Spine</a></li></ul></div>
+          <li><a href="neurosurgery.html">Neurosurgery</a></li><li><a href="spine.html">Spine</a></li>
+          <li><a href="contact.html">Contact</a></li><li><a href="search.html">Search</a></li></ul></div>
         <div><h2>Learn</h2><ul>
           <li><a href="conditions.html">Conditions</a></li><li><a href="resources.html">Patient resources</a></li>
-          <li><a href="contact.html">Contact</a></li></ul></div>
+          <li><a href="cards.html">Warning-sign cards</a></li><li><a href="glossary.html">Glossary</a></li>
+          <li><a href="history.html">History of neurosurgery</a></li></ul></div>
         <div><h2>Legal</h2><ul>
           <li><a href="privacy.html">Privacy policy</a></li><li><a href="disclaimer.html">Medical disclaimer</a></li></ul></div>
       </nav>

@@ -642,6 +642,8 @@
     pick('head');
   });
 
+  DERIVE.bpi = function (v) { return { x: Math.max(v.st || 0, v.ru || 0, v.av || 0) }; };
+
 
   function morphWidget(w) {
     var kind = w.getAttribute('data-kind'), ch = {}, raf = null, touched = false;
@@ -932,5 +934,231 @@
       });
     }, { threshold: .6 });
     els.forEach(function (el) { el.textContent = '0'; io.observe(el); });
+  }
+})();
+
+/* ===== November 2026 additions: search, glossary filter, printable cards, anatomy explorer ===== */
+(function () {
+  'use strict';
+  var body = document.body;
+  var ROOT = (body && body.getAttribute('data-root')) || '';
+
+  /* ---------- search ---------- */
+  var indexPromise = null;
+  function loadIndex() {
+    if (window.INSULA_SEARCH) return Promise.resolve(window.INSULA_SEARCH);
+    if (indexPromise) return indexPromise;
+    indexPromise = new Promise(function (res, rej) {
+      var s = document.createElement('script');
+      s.src = ROOT + 'assets/js/search-index.js';
+      s.onload = function () { res(window.INSULA_SEARCH || []); };
+      s.onerror = rej;
+      document.head.appendChild(s);
+    });
+    return indexPromise;
+  }
+  function norm(t) { return (t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  var SYN = { sciatica: 'slipped disc nerve leg', fit: 'seizure', fits: 'seizure', backache: 'back pain', 'slip disc': 'slipped disc', spondylitis: 'spondylosis', tb: 'tuberculosis', shunt: 'hydrocephalus shunt', bp: 'blood pressure' };
+  function search(entries, q) {
+    q = norm(q).trim();
+    if (q.length < 2) return [];
+    var extra = SYN[q] ? ' ' + SYN[q] : '';
+    var terms = (q + extra).split(/\s+/).filter(function (w) { return w.length > 1; });
+    var out = [];
+    entries.forEach(function (e) {
+      var t = norm(e.t), s = norm(e.s), b = norm(e.b), score = 0, hit = 0;
+      terms.forEach(function (w, i) {
+        var main = i < q.split(/\s+/).length;
+        var sc = 0;
+        if (t.indexOf(w) === 0) sc += 12; else if (t.indexOf(w) > -1) sc += 8;
+        if (s.indexOf(w) > -1) sc += 3;
+        if (b.indexOf(w) > -1) sc += 1;
+        if (sc) hit++;
+        score += main ? sc : sc * 0.4;
+      });
+      if (t === q) score += 20;
+      if (score > 0 && hit) out.push({ e: e, score: score + (e.k === 'Condition' || e.k === 'Procedure' ? 1 : 0) });
+    });
+    out.sort(function (a, b) { return b.score - a.score; });
+    return out.slice(0, 30).map(function (x) { return x.e; });
+  }
+  function esc(t) { return t.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function mark(text, q) {
+    var h = esc(text);
+    q.split(/\s+/).filter(function (w) { return w.length > 1; }).forEach(function (w) {
+      h = h.replace(new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<mark>$1</mark>');
+    });
+    return h;
+  }
+  function snippet(e, q) {
+    var first = norm(q).split(/\s+/)[0] || '';
+    var b = e.b || '', i = norm(b).indexOf(first);
+    if (i > 60 && first) return '…' + b.slice(i - 50, i + 110).trim() + '…';
+    return e.s;
+  }
+  function render(list, results, q) {
+    if (!list) return;
+    list.innerHTML = results.map(function (e) {
+      return '<li><a href="' + ROOT + e.u + '"><span class="sr-kind' + (e.k === 'Card' ? ' k-card' : '') + '">' + e.k + '</span><span class="sr-title">' + mark(e.t, q) + '</span><span class="sr-snip">' + mark(snippet(e, q), q) + '</span></a></li>';
+    }).join('');
+  }
+
+  // overlay
+  var overlay = document.querySelector('[data-search-overlay]');
+  var openBtn = document.querySelector('[data-search-open]');
+  if (overlay && openBtn) {
+    var input = overlay.querySelector('input');
+    var list = overlay.querySelector('[data-overlay-results]');
+    var hint = overlay.querySelector('.search-hint');
+    var lastFocus = null, sel = -1;
+    function open() {
+      lastFocus = document.activeElement;
+      overlay.hidden = false; body.style.overflow = 'hidden';
+      setTimeout(function () { input.focus(); }, 30);
+      loadIndex();
+    }
+    function close() {
+      overlay.hidden = true; body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    openBtn.addEventListener('click', open);
+    overlay.querySelector('[data-search-close]').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !overlay.hidden) close();
+      if (e.key === '/' && overlay.hidden && !/input|textarea/i.test((document.activeElement || {}).tagName || '')) { e.preventDefault(); open(); }
+    });
+    input.addEventListener('input', function () {
+      var q = input.value;
+      loadIndex().then(function (ix) {
+        var r = search(ix, q); sel = -1;
+        render(list, r.slice(0, 8), q);
+        hint.hidden = q.trim().length > 1;
+      });
+    });
+    input.addEventListener('keydown', function (e) {
+      var links = list.querySelectorAll('a');
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        sel = Math.max(0, Math.min(links.length - 1, sel + (e.key === 'ArrowDown' ? 1 : -1)));
+        links.forEach(function (a, i) { a.classList.toggle('sel', i === sel); });
+      } else if (e.key === 'Enter' && sel > -1 && links[sel]) { e.preventDefault(); location.href = links[sel].href; }
+    });
+    // keep keyboard focus inside the dialog
+    overlay.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var f = overlay.querySelectorAll('input,button,a[href]'); if (!f.length) return;
+      var a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    });
+  }
+
+  // search page
+  var sp = document.querySelector('[data-search-page]');
+  if (sp) {
+    var spi = sp.querySelector('input'), spl = document.querySelector('.search-results'), status = document.querySelector('.sr-status');
+    var run = function () {
+      var q = spi.value;
+      loadIndex().then(function (ix) {
+        var r = q.trim().length > 1 ? search(ix, q) : [];
+        render(spl, r, q);
+        status.textContent = q.trim().length < 2 ? '' : (r.length ? r.length + (r.length === 1 ? ' result' : ' results') + ' for “' + q + '”' : 'No results for “' + q + '”. Try a different or shorter word.');
+      });
+    };
+    var params = new URLSearchParams(location.search);
+    if (params.get('q')) { spi.value = params.get('q'); run(); }
+    spi.addEventListener('input', run);
+    sp.addEventListener('submit', function (e) { e.preventDefault(); run(); history.replaceState(null, '', '?q=' + encodeURIComponent(spi.value)); });
+  }
+
+  /* ---------- glossary filter ---------- */
+  var gl = document.getElementById('gl-search');
+  if (gl) {
+    var items = document.querySelectorAll('.gl-item'), groups = document.querySelectorAll('.gl-group'), none = document.querySelector('.gl-none');
+    gl.addEventListener('input', function () {
+      var q = norm(gl.value).trim(), shown = 0;
+      items.forEach(function (it) { var ok = !q || it.getAttribute('data-term').indexOf(q) > -1; it.hidden = !ok; if (ok) shown++; });
+      groups.forEach(function (g) { g.hidden = !g.querySelector('.gl-item:not([hidden])'); });
+      none.hidden = shown > 0;
+      var cnt = document.querySelector('.gl-count'); if (cnt) { var tot = +cnt.getAttribute('data-total'); cnt.textContent = q ? shown + ' of ' + tot : tot + ' terms'; }
+      document.querySelectorAll('.gl-jump a').forEach(function (a) { var g = document.getElementById(a.getAttribute('href').slice(1)); a.classList.toggle('off', !!g && g.hidden); });
+    });
+  }
+
+  /* ---------- widgets with several button groups act as one set ---------- */
+  document.querySelectorAll('.mwidget').forEach(function (w) {
+    if (w.querySelectorAll('.seg').length < 2) return;
+    var bs = w.querySelectorAll('.seg button');
+    bs.forEach(function (b) { b.addEventListener('click', function () { bs.forEach(function (x) { if (x !== b) x.setAttribute('aria-pressed', 'false'); }); }); });
+  });
+
+  /* ---------- headache warning-sign checker ---------- */
+  document.querySelectorAll('[data-redflags]').forEach(function (rf) {
+    function upd() {
+      var now = rf.querySelector('input[data-flag="now"]:checked'), soon = rf.querySelector('input[data-flag="soon"]:checked');
+      rf.querySelector('.rf-now').hidden = !now;
+      rf.querySelector('.rf-soon').hidden = !!now || !soon;
+      rf.querySelector('.rf-none').hidden = !!(now || soon);
+    }
+    rf.addEventListener('change', upd); upd();
+  });
+
+  /* ---------- printable cards ---------- */
+  document.querySelectorAll('[data-print]').forEach(function (b) {
+    b.addEventListener('click', function () { body.classList.add('card-print'); window.print(); });
+  });
+  window.addEventListener('afterprint', function () { body.classList.remove('card-print'); });
+  if (document.querySelector('.wcard')) body.classList.add('has-card');
+
+  /* ---------- anatomy explorer ---------- */
+  var exData = document.getElementById('ex-data');
+  if (exData) {
+    var DATA = JSON.parse(exData.textContent);
+    var tabs = document.querySelectorAll('.ex-tabs [role="tab"]');
+    function showView(vid, push) {
+      tabs.forEach(function (t) { var on = t.getAttribute('data-view') === vid; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+      document.querySelectorAll('.ex-view').forEach(function (v) { var on = v.getAttribute('data-view') === vid; v.hidden = !on; v.classList.toggle('active', on); });
+      if (push) history.replaceState(null, '', '#' + vid);
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { showView(t.getAttribute('data-view'), true); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); n.click();
+      });
+    });
+    document.querySelectorAll('.ex-view').forEach(function (view) {
+      var vid = view.getAttribute('data-view'), d = DATA[vid];
+      var info = view.querySelector('.ex-info'), h = info.querySelector('.ex-name'), p = info.querySelector('p:not(.ex-level)'), lvl = info.querySelector('.ex-level'), ul = info.querySelector('.ex-links');
+      var hits = view.querySelectorAll('.hit'), chips = view.querySelectorAll('.ex-chips .chip');
+      hits.forEach(function (el) {
+        var r = d[el.getAttribute('data-region')]; if (!r) return;
+        var lv = el.getAttribute('data-level');
+        el.setAttribute('tabindex', '0'); el.setAttribute('role', 'button');
+        el.setAttribute('aria-label', (lv ? lv + ', ' : '') + r.name);
+      });
+      function select(region, level) {
+        var r = d[region]; if (!r) return;
+        h.textContent = r.name; p.textContent = r.text;
+        if (level) { lvl.hidden = false; lvl.textContent = level === 'Sacrum' ? 'Sacrum' : 'Level ' + level; } else lvl.hidden = true;
+        ul.innerHTML = r.links.map(function (l) { return '<li><a href="' + l[0] + '">' + l[1] + '</a></li>'; }).join('');
+        hits.forEach(function (el) {
+          var same = el.getAttribute('data-region') === region;
+          el.classList.toggle('on', same && (!level || el.getAttribute('data-level') === level));
+          el.classList.toggle('group', same && !!level && el.getAttribute('data-level') !== level);
+        });
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-region') === region); });
+      }
+      hits.forEach(function (el) {
+        var act = function () { select(el.getAttribute('data-region'), el.getAttribute('data-level')); };
+        el.addEventListener('click', act);
+        el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
+      });
+      chips.forEach(function (c) { c.addEventListener('click', function () { select(c.getAttribute('data-region'), null); }); });
+      var firstChip = chips[0]; if (firstChip) select(firstChip.getAttribute('data-region'), null);
+    });
+    var h0 = location.hash.slice(1);
+    if (h0 && document.getElementById('view-' + h0)) showView(h0, false);
   }
 })();

@@ -12,6 +12,10 @@
 <meta property="og:title" content="Privacy policy | Dr Jemish Mayani - Insula Neurosciences">
 <meta property="og:description" content="How the Insula Neurosciences website handles information.">
 <meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://jemishmayani.github.io/insula-website/privacy.html">
+<meta property="og:url" content="https://jemishmayani.github.io/insula-website/privacy.html">
+<meta property="og:image" content="https://jemishmayani.github.io/insula-website/assets/img/og-image.png">
+<meta property="og:locale" content="en_IN">
 <meta name="author" content="Dr Jemish Mayani">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
@@ -21,15 +25,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page-inner">
+<body class="page-inner" data-root="">
 <canvas class="neural neural-page" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Insula Neurosciences, home">
       <img src="assets/img/logo-mark-96.png" width="40" height="40" alt="">
-      <span class="brand-text"><span class="brand-name">Insula</span><span class="brand-sub">Neurosciences</span></span>
+      <span class="brand-text"><span class="brand-name">Insula</span> <span class="brand-sub">Neurosciences</span></span>
     </a>
+    <button class="search-toggle" type="button" aria-label="Search the site" data-search-open><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m12.7 12.7 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span>
     </button>
@@ -39,6 +44,18 @@
   </div>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 </header>
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search the site">
+    <form role="search" action="search.html" data-search-form>
+      <svg class="search-ico" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m12.7 12.7 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <label class="sr-only" for="so-q">Search</label>
+      <input id="so-q" name="q" type="search" placeholder="Search conditions, guides, glossary" autocomplete="off">
+      <button class="search-close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </form>
+    <ol class="search-results" data-overlay-results></ol>
+    <p class="search-hint small">Try <a href="search.html?q=sciatica">sciatica</a>, <a href="search.html?q=shunt">shunt</a> or <a href="search.html?q=MRI">MRI</a>.</p>
+  </div>
+</div>
 <main id="main">
 <section class="page-hero">
   <div class="wrap">
@@ -76,19 +93,21 @@
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="Insula Neurosciences, home">
           <img src="assets/img/logo-mark-96.png" width="40" height="40" alt="" loading="lazy">
-          <span class="brand-text"><span class="brand-name">Insula</span><span class="brand-sub">Neurosciences</span></span>
+          <span class="brand-text"><span class="brand-name">Insula</span> <span class="brand-sub">Neurosciences</span></span>
         </a>
         <p>Clear, honest information about the brain, spine and nerves.</p>
         <a class="footer-mail" href="mailto:insulaneurosciences@gmail.com"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m2.5 4.5 5.5 4 5.5-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>insulaneurosciences@gmail.com</a>
         <a class="footer-mail" href="https://www.instagram.com/insula.neurosciences/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="11.6" cy="4.4" r=".9" fill="currentColor"/></svg>@insula.neurosciences</a>
       </div>
       <nav class="footer-nav" aria-label="Footer">
-        <div><h2>Explore</h2><ul>
+        <div><h2>Site</h2><ul>
           <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
-          <li><a href="neurosurgery.html">Neurosurgery</a></li><li><a href="spine.html">Spine</a></li></ul></div>
+          <li><a href="neurosurgery.html">Neurosurgery</a></li><li><a href="spine.html">Spine</a></li>
+          <li><a href="contact.html">Contact</a></li><li><a href="search.html">Search</a></li></ul></div>
         <div><h2>Learn</h2><ul>
           <li><a href="conditions.html">Conditions</a></li><li><a href="resources.html">Patient resources</a></li>
-          <li><a href="contact.html">Contact</a></li></ul></div>
+          <li><a href="cards.html">Warning-sign cards</a></li><li><a href="glossary.html">Glossary</a></li>
+          <li><a href="history.html">History of neurosurgery</a></li></ul></div>
         <div><h2>Legal</h2><ul>
           <li><a href="privacy.html">Privacy policy</a></li><li><a href="disclaimer.html">Medical disclaimer</a></li></ul></div>
       </nav>
